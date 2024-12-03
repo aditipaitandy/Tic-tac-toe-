@@ -1,0 +1,168 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(135deg, #ff6a6a, #ffa500);
+  color: #fff;
+  text-align: center;
+  overflow: hidden;
+  position: relative;
+}
+
+body::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, #ffe259, #ffa751, #ff6a6a);
+  animation: gradient-animation 10s ease infinite;
+  z-index: -1;
+}
+
+@keyframes gradient-animation {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate(-50%, -50%) rotate(180deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(360deg);
+  }
+}
+
+h1 {
+  font-size: 3rem;
+  margin: 2rem 0;
+  color: #fff;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+.container {
+  height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.game {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5vmin;
+  width: 300px;
+  height: 300px;
+  justify-content: center;
+  align-items: center;
+}
+
+.box {
+  height: 100px;
+  width: 100px;
+  border-radius: 1rem;
+  border: none;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.3);
+  font-size: 4rem;
+  color: #ff6a6a;
+  background-color: #ffecd2;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.box:hover {
+  background-color: #f7b267;
+  transform: scale(1.05);
+}
+
+#reset-btn, #new-btn {
+  padding: 1rem;
+  font-size: 1.25rem;
+  background-color: #b33030;
+  color: #fff;
+  border-radius: 1rem;
+  border: none;
+  cursor: pointer;
+  margin-top: 2rem;
+  transition: background-color 0.3s ease;
+}
+
+#reset-btn:hover, #new-btn:hover {
+  background-color: #ffa500;
+}
+
+#msg {
+  color: #ffecd2;
+  font-size: 5vmin;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+.msg-container {
+  height: 100vmin;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.hide {
+  display: none;
+}
+
+@media screen and (max-width: 700px) {
+  .game {
+    width: 250px;
+    height: 250px;
+    gap: 1.5vmin;
+  }
+
+  .box {
+    font-size: 3rem;
+    height: 80px;
+    width: 80px;
+  }
+
+  #reset-btn, #new-btn {
+    font-size: 1.1rem;
+    padding: 0.8rem;
+  }
+
+  #msg {
+    font-size: 4vmin;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .game {
+    width: 200px;
+    height: 200px;
+    gap: 2vmin;
+  }
+
+  .box {
+    font-size: 2.5rem;
+    height: 60px;
+    width: 60px;
+  }
+
+  #reset-btn, #new-btn {
+    font-size: 1rem;
+    padding: 0.6rem;
+  }
+
+  #msg {
+    font-size: 3.5vmin;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+}
